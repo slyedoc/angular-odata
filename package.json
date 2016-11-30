@@ -1,12 +1,10 @@
 {
-  "name": "angular2-odata",
-  "version": "0.0.23",
+  "name": "angular-odata",
+  "version": "0.0.24",
   "description": "OData service for Angular2",
-  "main": "./build/index.js",
-  "typings": "./build/index.d.ts",
+  "main": "./src/index.js",
+  "module": "./src/index.js",
   "scripts": {
-    "typings": "typings i",
-    "clean": "rimraf ./build",
     "build:tscwithclean": "npm run clean && tsc",
     "build": "tsc",
     "build:test": "tsc --project ./tsconfig-test.json",
@@ -15,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gallayl/angular2-odata.git"
+    "url": "git+https://github.com/slyedoc/angular-odata.git"
   },
   "keywords": [
     "odata",
@@ -28,9 +26,9 @@
   "author": "Gallay Lajos",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/gallayl/angular2-odata/issues"
+    "url": "https://github.com/slyedoc/angular-odata/issues"
   },
-  "homepage": "https://github.com/gallayl/angular2-odata#readme",
+  "homepage": "https://github.com/slyedoc/angular-odata#readme",
   "dependencies": {},
   "devDependencies": {
     "@angular/common": "2.1.0",
