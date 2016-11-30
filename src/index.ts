@@ -25,7 +25,7 @@ export { ODataServiceFactory } from './odata.service.factory';
 export class ODataModule {
     constructor(@Optional() @SkipSelf() parentModule: ODataModule) {
         if (parentModule) {
-            throw new Error('CoreModule is already loaded. Import it in the AppModule only');
+            throw new Error('ODataModule is already loaded. Import it in the AppModule only');
         }
     }
 

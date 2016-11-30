@@ -1,7 +1,6 @@
-import {Injectable, Optional} from '@angular/core';
+import { Injectable, Optional} from '@angular/core';
 import { RequestOptions, Headers, Response } from '@angular/http';
 import { PagedResult } from './odata-query';
-// import { Location } from '@angular/common';
 
 export class KeyConfigs {
     public filter: string = '$filter';
@@ -13,7 +12,7 @@ export class KeyConfigs {
 }
 
 export class ODataConfigServiceConfig {
-    baseUrl: string = 'http://localhost/odata';
+    baseUrl: string = '/';
 }
 
 @Injectable()
