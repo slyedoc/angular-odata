@@ -1,13 +1,13 @@
 import { URLSearchParams, Http, Response, RequestOptions } from '@angular/http';
 import { Observable, Operator } from 'rxjs/rx';
-import { ODataServiceConfig } from './odata.service.config';
+import { ODataConfigService } from './odata-config.service';
 
 export abstract class ODataOperation<T> {
     private _expand: string;
     private _select: string;
 
     constructor(protected _typeName: string,
-                protected config: ODataServiceConfig,
+                protected config: ODataConfigService,
                 protected http: Http) { }
 
     public Expand(expand: string | string[]) {
@@ -67,7 +67,7 @@ export abstract class ODataOperation<T> {
 
 export abstract class OperationWithKey<T> extends ODataOperation<T> {
     constructor(protected _typeName: string,
-                protected config: ODataServiceConfig,
+                protected config: ODataConfigService,
                 protected http: Http,
                 protected key: string) {
                     super(_typeName, config, http);
@@ -77,7 +77,7 @@ export abstract class OperationWithKey<T> extends ODataOperation<T> {
 
 export abstract class OperationWithEntity<T> extends ODataOperation<T> {
     constructor(protected _typeName: string,
-                protected config: ODataServiceConfig,
+                protected config: ODataConfigService,
                 protected http: Http,
                 protected entity: T) {
                     super(_typeName, config, http);
@@ -87,7 +87,7 @@ export abstract class OperationWithEntity<T> extends ODataOperation<T> {
 
 export abstract class OperationWithKeyAndEntity<T> extends ODataOperation<T> {
     constructor(protected _typeName: string,
-                protected config: ODataServiceConfig,
+                protected config: ODataConfigService,
                 protected http: Http,
                 protected key: string,
                 protected entity: T) {

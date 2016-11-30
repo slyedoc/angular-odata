@@ -8,7 +8,7 @@ import { BaseRequestOptions, Http, ConnectionBackend, HttpModule } from '@angula
 import { IEmployee } from './helpers/employee';
 import { ODataOperation } from '../odata-operation';
 import { ODataServiceFactory } from '../odata.service.factory';
-import { ODataServiceConfig } from '../odata.service.config';
+import { ODataConfigService } from '../odata-config.service';
 
 export class ODataOperationTest<IEmployee> extends ODataOperation<IEmployee> {
     public Exec(): Observable<Array<IEmployee>> {
@@ -35,7 +35,7 @@ describe('ODataOperation', () => {
                 //         };
                 //     }
                 // },
-                ODataServiceConfig,
+                ODataConfigService,
                 ODataServiceFactory
             ],
             imports: [
@@ -44,7 +44,7 @@ describe('ODataOperation', () => {
         });
     });
 
-    it('Expand(string) via injection', inject([ Http, ODataServiceConfig ], (http: Http, config: ODataServiceConfig) => {
+    it('Expand(string) via injection', inject([ Http, ODataConfigService ], (http: Http, config: ODataConfigService) => {
         // Assign
         let test = new ODataOperationTest<IEmployee>('Employees', config, http);
 

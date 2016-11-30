@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable, Optional} from '@angular/core';
 import { RequestOptions, Headers, Response } from '@angular/http';
 import { PagedResult } from './odata-query';
 // import { Location } from '@angular/common';
@@ -12,16 +12,23 @@ export class KeyConfigs {
     public expand: string = '$expand';
 }
 
+export class ODataConfigServiceConfig {
+    baseUrl: string = 'http://localhost/odata';
+}
+
 @Injectable()
-export class ODataServiceConfig {
+export class ODataConfigService {
     public keys: KeyConfigs = new KeyConfigs();
     public baseUrl: string = 'http://localhost/odata';
+
+    constructor(@Optional() config: ODataConfigServiceConfig) {
+        if (config) { this.baseUrl = config.baseUrl; }
+    }
 
     public getEntityUri(entityKey: string, _typeName: string) {
         if (!/^[0-9]*$/.test(entityKey)) {
             return this.baseUrl + '/' + _typeName + "('" + entityKey + "')";
         }
-
         return this.baseUrl + '/' + _typeName + '(' + entityKey + ')';
     }
 

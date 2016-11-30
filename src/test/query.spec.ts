@@ -8,7 +8,7 @@ import { BaseRequestOptions, Http, ConnectionBackend, HttpModule } from '@angula
 import { IEmployee } from './helpers/employee';
 import { ODataQuery, PagedResult } from '../odata-query';
 import { ODataServiceFactory } from '../odata.service.factory';
-import { ODataServiceConfig } from '../odata.service.config';
+import { ODataConfigService } from '../odata-config.service';
 
 export class ODataQueryMock<IEmployee> extends ODataQuery<IEmployee> {
     public Exec(): Observable<Array<IEmployee>> {
@@ -42,7 +42,7 @@ describe('ODataQuery', () => {
                 //         };
                 //     }
                 // },
-                ODataServiceConfig,
+                ODataConfigService,
                 ODataServiceFactory
             ],
             imports: [
@@ -51,7 +51,7 @@ describe('ODataQuery', () => {
         });
     });
 
-    // it('Exec', inject([ Http, ODataServiceConfig ], (http: Http, config: ODataServiceConfig) => {
+    // it('Exec', inject([ Http, ODataConfigService ], (http: Http, config: ODataConfigService) => {
     //     // Assign
     //     let query = new ODataQueryMock<IEmployee>('Employees', config, http);
 
@@ -69,7 +69,7 @@ describe('ODataQuery', () => {
     //     // expect(http.get).toHaveBeenCalled();
     // }));
 
-    it('Filter(string)', inject([ Http, ODataServiceConfig ], (http: Http, config: ODataServiceConfig) => {
+    it('Filter(string)', inject([ Http, ODataConfigService ], (http: Http, config: ODataConfigService) => {
         // Assign
         let test = new ODataQueryMock<IEmployee>('Employees', config, http);
 
@@ -80,7 +80,7 @@ describe('ODataQuery', () => {
         assert.equal(test['_filter'], 'x');
     }));
 
-    it('OrderBy(string)', inject([ Http, ODataServiceConfig ], (http: Http, config: ODataServiceConfig) => {
+    it('OrderBy(string)', inject([ Http, ODataConfigService ], (http: Http, config: ODataConfigService) => {
         // Assign
         let test = new ODataQueryMock<IEmployee>('Employees', config, http);
 
@@ -91,7 +91,7 @@ describe('ODataQuery', () => {
         assert.equal(test['_orderBy'], 'o');
     }));
 
-    it('Skip(number)', inject([ Http, ODataServiceConfig ], (http: Http, config: ODataServiceConfig) => {
+    it('Skip(number)', inject([ Http, ODataConfigService ], (http: Http, config: ODataConfigService) => {
         // Assign
         let test = new ODataQueryMock<IEmployee>('Employees', config, http);
 
@@ -102,7 +102,7 @@ describe('ODataQuery', () => {
         assert.equal(test['_skip'], 10);
     }));
 
-    it('Top(number)', inject([ Http, ODataServiceConfig ], (http: Http, config: ODataServiceConfig) => {
+    it('Top(number)', inject([ Http, ODataConfigService ], (http: Http, config: ODataConfigService) => {
         // Assign
         let test = new ODataQueryMock<IEmployee>('Employees', config, http);
 

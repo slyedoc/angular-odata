@@ -1,6 +1,6 @@
 import { URLSearchParams, Http, Response } from '@angular/http';
 import { Observable, Operator, Subject } from 'rxjs/rx';
-import { ODataServiceConfig } from './odata.service.config';
+import { ODataConfigService } from './odata-config.service';
 import { ODataOperation } from './odata-operation';
 
 export class PagedResult<T>{
@@ -14,7 +14,7 @@ export class ODataQuery<T> extends ODataOperation<T> {
     private _skip: number;
     private _orderBy: string;
 
-    constructor(_typeName: string, config: ODataServiceConfig, http: Http) {
+    constructor(_typeName: string, config: ODataConfigService, http: Http) {
         super(_typeName, config, http);
     }
 
@@ -75,11 +75,11 @@ export class ODataQuery<T> extends ODataOperation<T> {
         return params;
     }
 
-    private extractArrayData(res: Response, config: ODataServiceConfig): Array<T> {
+    private extractArrayData(res: Response, config: ODataConfigService): Array<T> {
         return config.extractQueryResultData<T>(res);
     }
 
-    private extractArrayDataWithCount(res: Response, config: ODataServiceConfig): PagedResult<T> {
+    private extractArrayDataWithCount(res: Response, config: ODataConfigService): PagedResult<T> {
         return config.extractQueryResultDataWithCount<T>(res);
     }
 }

@@ -8,7 +8,7 @@ import { BaseRequestOptions, Http, ConnectionBackend, HttpModule } from '@angula
 import { IEmployee } from './helpers/employee';
 import { ODataOperation } from '../odata-operation';
 import { ODataServiceFactory } from '../odata.service.factory';
-import { ODataServiceConfig } from '../odata.service.config';
+import { ODataConfigService } from '../odata-config.service';
 
 describe('ODataService', () => {
     beforeEach(() => {
@@ -29,7 +29,7 @@ describe('ODataService', () => {
                 //         };
                 //     }
                 // },
-                ODataServiceConfig,
+                ODataConfigService,
                 ODataServiceFactory
             ],
             imports: [

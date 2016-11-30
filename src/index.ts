@@ -4,15 +4,20 @@ import {
 }       from '@angular/core';
 
 import { ODataService } from './odata.service';
-import { ODataServiceConfig } from './odata.service.config';
+import {ODataConfigService, ODataConfigServiceConfig} from './odata-config.service';
 import { ODataQuery, PagedResult } from './odata-query';
 import { ODataServiceFactory } from './odata.service.factory';
+
+export { ODataService } from './odata.service';
+export {ODataConfigService, ODataConfigServiceConfig} from './odata-config.service';
+export { ODataQuery, PagedResult } from './odata-query';
+export { ODataServiceFactory } from './odata.service.factory';
 
 @NgModule({
     imports: [],
     declarations: [],
     exports: [
-        ODataService,ODataServiceConfig, ODataQuery, PagedResult, ODataServiceFactory
+        ODataService, ODataConfigService, ODataQuery, PagedResult, ODataServiceFactory
     ],
     providers: [ODataService]
 })
@@ -24,11 +29,11 @@ export class ODataModule {
         }
     }
 
-    static forRoot(config: ODataServiceConfig): ModuleWithProviders {
+    static forRoot(config: ODataConfigServiceConfig): ModuleWithProviders {
         return {
             ngModule: ODataModule,
             providers: [
-                {provide: ODataServiceConfig, useValue: config }
+                {provide: ODataConfigService, useValue: config }
             ]
         };
     }
