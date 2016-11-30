@@ -1,8 +1,6 @@
 import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
 import { ODataConfigService, ODataConfigServiceConfig } from './odata-config.service';
-
-
-
+import {ODataServiceFactory} from "./odata.service.factory";
 
 export { ODataService } from './odata.service';
 export { ODataConfigService, ODataConfigServiceConfig } from './odata-config.service';
@@ -28,7 +26,8 @@ export class ODataModule {
         return {
             ngModule: ODataModule,
             providers: [
-                {provide: ODataConfigService, useValue: config }
+                { provide: ODataConfigService, useValue: config },
+                ODataServiceFactory
             ]
         };
     }
