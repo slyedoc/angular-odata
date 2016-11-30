@@ -97,7 +97,7 @@ export abstract class OperationWithKeyAndEntity<T> extends ODataOperation<T> {
 }
 
 
-export class GetOperation<T> extends OperationWithKey<T> {
+export class ODataGetOperation<T> extends OperationWithKey<T> {
 
     public Exec(): Observable<T> {
         return super.handleResponse(this.http.get(this.getEntityUri(this.key), this.getRequestOptions()));

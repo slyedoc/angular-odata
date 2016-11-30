@@ -9,9 +9,10 @@ import { ODataQuery, PagedResult } from './odata-query';
 import { ODataServiceFactory } from './odata.service.factory';
 
 export { ODataService } from './odata.service';
-export {ODataConfigService, ODataConfigServiceConfig} from './odata-config.service';
+export { ODataConfigService, ODataConfigServiceConfig} from './odata-config.service';
 export { ODataQuery, PagedResult } from './odata-query';
 export { ODataServiceFactory } from './odata.service.factory';
+export { ODataGetOperation } from './odata-operation';
 
 @NgModule({
     imports: [],
