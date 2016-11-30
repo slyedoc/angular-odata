@@ -6,9 +6,9 @@ import { inject, TestBed } from '@angular/core/testing';
 import { MockBackend } from '@angular/http/testing';
 import { BaseRequestOptions, Http, ConnectionBackend, HttpModule } from '@angular/http';
 import { IEmployee } from './helpers/employee';
-import { ODataQuery, PagedResult } from '../query';
-import { ODataServiceFactory } from '../odataservicefactory';
-import { ODataConfiguration } from '../config';
+import { ODataQuery, PagedResult } from '../odata-query';
+import { ODataServiceFactory } from '../odata.service.factory';
+import { ODataServiceConfig } from '../odata.service.config';
 
 export class ODataQueryMock<IEmployee> extends ODataQuery<IEmployee> {
     public Exec(): Observable<Array<IEmployee>> {
@@ -42,7 +42,7 @@ describe('ODataQuery', () => {
                 //         };
                 //     }
                 // },
-                ODataConfiguration,
+                ODataServiceConfig,
                 ODataServiceFactory
             ],
             imports: [
@@ -51,7 +51,7 @@ describe('ODataQuery', () => {
         });
     });
 
-    // it('Exec', inject([ Http, ODataConfiguration ], (http: Http, config: ODataConfiguration) => {
+    // it('Exec', inject([ Http, ODataServiceConfig ], (http: Http, config: ODataServiceConfig) => {
     //     // Assign
     //     let query = new ODataQueryMock<IEmployee>('Employees', config, http);
 
@@ -69,7 +69,7 @@ describe('ODataQuery', () => {
     //     // expect(http.get).toHaveBeenCalled();
     // }));
 
-    it('Filter(string)', inject([ Http, ODataConfiguration ], (http: Http, config: ODataConfiguration) => {
+    it('Filter(string)', inject([ Http, ODataServiceConfig ], (http: Http, config: ODataServiceConfig) => {
         // Assign
         let test = new ODataQueryMock<IEmployee>('Employees', config, http);
 
@@ -80,7 +80,7 @@ describe('ODataQuery', () => {
         assert.equal(test['_filter'], 'x');
     }));
 
-    it('OrderBy(string)', inject([ Http, ODataConfiguration ], (http: Http, config: ODataConfiguration) => {
+    it('OrderBy(string)', inject([ Http, ODataServiceConfig ], (http: Http, config: ODataServiceConfig) => {
         // Assign
         let test = new ODataQueryMock<IEmployee>('Employees', config, http);
 
@@ -91,7 +91,7 @@ describe('ODataQuery', () => {
         assert.equal(test['_orderBy'], 'o');
     }));
 
-    it('Skip(number)', inject([ Http, ODataConfiguration ], (http: Http, config: ODataConfiguration) => {
+    it('Skip(number)', inject([ Http, ODataServiceConfig ], (http: Http, config: ODataServiceConfig) => {
         // Assign
         let test = new ODataQueryMock<IEmployee>('Employees', config, http);
 
@@ -102,7 +102,7 @@ describe('ODataQuery', () => {
         assert.equal(test['_skip'], 10);
     }));
 
-    it('Top(number)', inject([ Http, ODataConfiguration ], (http: Http, config: ODataConfiguration) => {
+    it('Top(number)', inject([ Http, ODataServiceConfig ], (http: Http, config: ODataServiceConfig) => {
         // Assign
         let test = new ODataQueryMock<IEmployee>('Employees', config, http);
 

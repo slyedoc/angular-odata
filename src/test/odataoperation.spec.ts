@@ -6,9 +6,9 @@ import { inject, TestBed } from '@angular/core/testing';
 import { MockBackend } from '@angular/http/testing';
 import { BaseRequestOptions, Http, ConnectionBackend, HttpModule } from '@angular/http';
 import { IEmployee } from './helpers/employee';
-import { ODataOperation } from '../operation';
-import { ODataServiceFactory } from '../odataservicefactory';
-import { ODataConfiguration } from '../config';
+import { ODataOperation } from '../odata-operation';
+import { ODataServiceFactory } from '../odata.service.factory';
+import { ODataServiceConfig } from '../odata.service.config';
 
 export class ODataOperationTest<IEmployee> extends ODataOperation<IEmployee> {
     public Exec(): Observable<Array<IEmployee>> {
@@ -35,7 +35,7 @@ describe('ODataOperation', () => {
                 //         };
                 //     }
                 // },
-                ODataConfiguration,
+                ODataServiceConfig,
                 ODataServiceFactory
             ],
             imports: [
@@ -44,7 +44,7 @@ describe('ODataOperation', () => {
         });
     });
 
-    it('Expand(string) via injection', inject([ Http, ODataConfiguration ], (http: Http, config: ODataConfiguration) => {
+    it('Expand(string) via injection', inject([ Http, ODataServiceConfig ], (http: Http, config: ODataServiceConfig) => {
         // Assign
         let test = new ODataOperationTest<IEmployee>('Employees', config, http);
 

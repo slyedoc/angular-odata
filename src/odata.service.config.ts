@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { RequestOptions, Headers, Response } from '@angular/http';
-import { PagedResult } from './query';
+import { PagedResult } from './odata-query';
 // import { Location } from '@angular/common';
 
 export class KeyConfigs {
@@ -13,10 +13,9 @@ export class KeyConfigs {
 }
 
 @Injectable()
-export class ODataConfiguration {
+export class ODataServiceConfig {
     public keys: KeyConfigs = new KeyConfigs();
     public baseUrl: string = 'http://localhost/odata';
-
 
     public getEntityUri(entityKey: string, _typeName: string) {
         if (!/^[0-9]*$/.test(entityKey)) {

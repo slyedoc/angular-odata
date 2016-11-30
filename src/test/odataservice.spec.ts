@@ -6,9 +6,9 @@ import { inject, TestBed } from '@angular/core/testing';
 import { MockBackend } from '@angular/http/testing';
 import { BaseRequestOptions, Http, ConnectionBackend, HttpModule } from '@angular/http';
 import { IEmployee } from './helpers/employee';
-import { ODataOperation } from '../operation';
-import { ODataServiceFactory } from '../odataservicefactory';
-import { ODataConfiguration } from '../config';
+import { ODataOperation } from '../odata-operation';
+import { ODataServiceFactory } from '../odata.service.factory';
+import { ODataServiceConfig } from '../odata.service.config';
 
 describe('ODataService', () => {
     beforeEach(() => {
@@ -29,7 +29,7 @@ describe('ODataService', () => {
                 //         };
                 //     }
                 // },
-                ODataConfiguration,
+                ODataServiceConfig,
                 ODataServiceFactory
             ],
             imports: [

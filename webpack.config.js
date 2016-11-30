@@ -2,6 +2,7 @@ var webpackConfig = require('webpack-config')
 
 const TARGET = process.env.npm_lifecycle_event
 
+
 var webpackConfigFile;
 
 switch (TARGET) {  
@@ -15,5 +16,7 @@ switch (TARGET) {
     webpackConfigFile = './config/webpack.prod.js'
     break
 }
+
+console.log('TARGET: ' + TARGET);
 
 module.exports = new webpackConfig.Config().extend(webpackConfigFile);

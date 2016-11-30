@@ -1,12 +1,12 @@
 import { URLSearchParams, Http, Response, Headers, RequestOptions } from '@angular/http';
 import { Observable, Operator } from 'rxjs/rx';
-import { ODataConfiguration } from './config';
-import { ODataQuery } from './query';
-import { GetOperation } from './operation';
+import { ODataServiceConfig } from './odata.service.config';
+import { ODataQuery } from './odata-query';
+import { GetOperation } from './odata-operation';
 
 export class ODataService<T> {
 
-    constructor(private _typeName: string, private http: Http, private config: ODataConfiguration) { }
+    constructor(private _typeName: string, private http: Http, private config: ODataServiceConfig) { }
 
     public get TypeName(){
         return this._typeName;
