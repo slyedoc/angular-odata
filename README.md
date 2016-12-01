@@ -5,22 +5,24 @@ OData service for Angular
 
 ##Usage example:
 Get the package from NPM:
-npm install @slyedoc/angular-odata
-
 ```
-import { ODataConfiguration, ODataServiceFactory, ODataService } from "angular2-odata";
-import { bootstrap } from "angular2/platform/browser";
-    
-@Injectable()
-class MyODataConfig extends ODataConfiguration{
-    baseUrl="http://localhost:54872/odata/";
-}
+npm install @slyedoc/angular-odata --save
+```
 
-bootstrap(app,[
-    provide(ODataConfiguration, {useClass:MyODataConfig}),
-    ODataServiceFactory,
-]
+To set baseUrl and import:
 
+app.module.ts
+```
+  import {ODataModule} from "@slyedoc/angular-odata";
+  ...
+  imports: [
+    ...
+    ODataModule.forRoot({baseUrl: 'http://localhost/odata'})
+  ]
+```
+
+An example interface and example
+```
 //An example model interface
 interface INotification {
     Id: number;
