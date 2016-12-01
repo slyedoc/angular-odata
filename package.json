@@ -1,6 +1,6 @@
 {
   "name": "@slyedoc/angular-odata",
-  "version": "0.0.38",
+  "version": "0.0.39",
   "description": "OData service for Angular2",
   "main": "./src/index.js",
   "module": "./src/index.js",
