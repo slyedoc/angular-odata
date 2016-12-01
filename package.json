@@ -1,6 +1,6 @@
 {
   "name": "@slyedoc/angular-odata",
-  "version": "0.0.40",
+  "version": "0.0.41",
   "description": "OData service for Angular2",
   "main": "./src/index.js",
   "module": "./src/index.js",
@@ -9,7 +9,8 @@
     "preversion": "",
     "version": "gulp build && git add -A src",
     "postversion": "git push && git push --tags && npm publish dist --access=public",
-    "test": "karma start karma.conf.js"
+    "test": "karma start karma.conf.js",
+    "push": "npm version --force patch -m \"WIP: updated %s\""
   },
   "repository": {
     "type": "git",
