@@ -6,8 +6,10 @@
   "module": "./src/index.js",
   "scripts": {
     "install": "node misc/validate-commit.install.js",
-    "test": "karma start karma.conf.js",
-    "api-doc-tdd": "jasmine-node misc/api-doc.spec.js --autotest --watch misc/api-doc-test-cases/*.ts misc/api-doc.js"
+    "preversion": "",
+    "version": "gulp build && git add -A src",
+    "postversion": "git push && git push --tags && npm publish dist",
+    "test": "karma start karma.conf.js"
   },
   "repository": {
     "type": "git",
