@@ -5,7 +5,7 @@ OData service for Angular
 
 ##Usage example:
 Get the package from NPM:
-npm install angular2-odata
+npm install @slyedoc/angular-odata
 
 ```
 import { ODataConfiguration, ODataServiceFactory, ODataService } from "angular2-odata";
